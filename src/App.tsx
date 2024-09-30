@@ -2,15 +2,25 @@
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   // const [count, setCount] = useState(0);
 
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen bg-gray-200">
-        <div className="bg-main w-[1920px] h-[1080px]"></div>
+      <div className="relative w-[1920px] h-[1080px]">
+        <Header />
+        <div className="absolute inset-74 w-full h-[956px] bg-black bg-opacity-80">
+          <div className="mx-[40px] mt-[40px] h-[56px] w-auto border-b border-white">
+            取引価格
+          </div>
+        </div>
+        <div className="bg-main w-[1920px] h-[956px]"></div>
+        <Footer />
       </div>
+
       {/* <div className="bg-main bg-cover bg-center min-h-screen"></div> */}
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
       {/* <div>
