@@ -4,6 +4,8 @@
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Title from "./components/Title";
+import Content from "./components/Content";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -13,9 +15,8 @@ function App() {
       <div className="relative w-[1920px] h-[1080px]">
         <Header />
         <div className="absolute inset-74 w-full h-[956px] bg-black bg-opacity-80">
-          <div className="mx-[40px] mt-[40px] h-[56px] w-auto border-b border-white">
-            取引価格
-          </div>
+          <Title />
+          <Content />
         </div>
         <div className="bg-main w-[1920px] h-[956px]"></div>
         <Footer />
