@@ -1,14 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import { useState } from "react";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <div className="flex items-center justify-center min-h-screen bg-gray-200">
+        <div className="bg-main w-[1920px] h-[1080px]"></div>
+      </div>
+      {/* <div className="bg-main bg-cover bg-center min-h-screen"></div> */}
+      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
