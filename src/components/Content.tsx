@@ -262,10 +262,14 @@ function Content() {
                 onChange={handlePrefChange}
               >
                 <option value="">--Select Pref--</option>
+                {Object.entries(prefArea).map(([key, value]) => (
+                  <option value={value.prefCode}>{key}</option>
+                ))}
+                {/*
                 <option value={13}>"Tokyo"</option>
                 <option value={14}>Kanagawa</option>
                 <option value="green">Green</option>
-                <option value="yellow">Yellow</option>
+                <option value="yellow">Yellow</option> */}
               </select>
             </div>
             <div className="h-[88px]">
@@ -279,7 +283,10 @@ function Content() {
                 <option value={2015}>2015</option>
                 <option value={2016}>2016</option>
                 <option value={2017}>2017</option>
-                <option value="yellow">Yellow</option>
+                <option value={2018}>2018</option>
+                <option value={2019}>2019</option>
+                <option value={2020}>2020</option>
+                <option value={2021}>2021</option>
               </select>
             </div>
             <div className="h-[192px]">
