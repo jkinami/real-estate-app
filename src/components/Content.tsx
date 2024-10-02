@@ -110,6 +110,7 @@ function Content() {
   }
   async function setPref(prefCode: number, year: number, type: number) {
     const apiKey = import.meta.env.VITE_RESAS_API_KEY;
+    console.log(apiKey);
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json;charset=UTF-8");
     myHeaders.append("X-API-KEY", apiKey);
