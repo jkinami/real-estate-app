@@ -32,7 +32,7 @@ ChartJS.register(
 //     },
 //   },
 // };
-
+// test
 function Content() {
   const [prefName, setPrefName] = useState("");
   const [prefValue, setPrefValue] = useState(0);
