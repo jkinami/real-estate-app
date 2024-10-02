@@ -8,7 +8,7 @@ export default {
     extend: {
       backgroundImage: {
         'main': "url('/src/assets/background.png')",
-        'logo': "url('/src/assets/logo.png')"
+        'logo': "url('/src/assets/logo.jpg')"
        }
     },
     fontSize: {
