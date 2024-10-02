@@ -112,7 +112,7 @@ function Content() {
     const apiKey = import.meta.env.VITE_RESAS_API_KEY;
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json;charset=UTF-8");
-    myHeaders.append("X-API-KEY", apiKey);
+    myHeaders.append("X-API-KEY", "1n3EjeykeYNFZLLbbMvVgkaUBXWDUUtu2OrShYdM");
 
     const requestOptions = {
       method: "GET",
@@ -170,7 +170,7 @@ function Content() {
     const myHeaders = new Headers();
 
     myHeaders.append("Content-Type", "application/json;charset=UTF-8");
-    myHeaders.append("X-API-KEY", apiKey);
+    myHeaders.append("X-API-KEY", "1n3EjeykeYNFZLLbbMvVgkaUBXWDUUtu2OrShYdM");
 
     const requestOptions = {
       method: "GET",
