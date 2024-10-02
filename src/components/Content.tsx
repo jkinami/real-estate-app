@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// Load environment variables from .env file
+// dotenv.config({ path: "../.." + "/.env" });
 
 import {
   Chart as ChartJS,
@@ -107,9 +109,10 @@ function Content() {
     setPref(prefCode, year, type);
   }
   async function setPref(prefCode: number, year: number, type: number) {
+    const apiKey = import.meta.env.VITE_RESAS_API_KEY;
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json;charset=UTF-8");
-    myHeaders.append("X-API-KEY", "1n3EjeykeYNFZLLbbMvVgkaUBXWDUUtu2OrShYdM");
+    myHeaders.append("X-API-KEY", apiKey);
 
     const requestOptions = {
       method: "GET",
@@ -163,9 +166,11 @@ function Content() {
   }
 
   async function getPrefVal(prefCode: number, year: number, type: number) {
+    const apiKey = import.meta.env.VITE_RESAS_API_KEY;
     const myHeaders = new Headers();
+
     myHeaders.append("Content-Type", "application/json;charset=UTF-8");
-    myHeaders.append("X-API-KEY", "1n3EjeykeYNFZLLbbMvVgkaUBXWDUUtu2OrShYdM");
+    myHeaders.append("X-API-KEY", apiKey);
 
     const requestOptions = {
       method: "GET",
