@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../fontAwesome";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+// import "../../fontAwesome";
 
 const Title = () => {
   return (
     <div className="mx-[40px] mt-[40px] h-[56px] w-auto border-b border-white border-opacity-20 text-white flex">
       <div className="text-3xl font-normal w-[180px]">
         <FontAwesomeIcon
-          icon="fa-solid fa-square-poll-vertical"
+          icon={fas.faSquarePollVertical}
           style={{ color: "#ffffff" }}
         />
         <span className="ml-2">取引価格</span>

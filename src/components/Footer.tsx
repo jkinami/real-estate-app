@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWindowRestore } from "@fortawesome/free-regular-svg-icons";
 import "../../fontAwesome";
 
 const Footer = () => {
@@ -8,14 +9,14 @@ const Footer = () => {
         <div>
           <span className="mr-2">利用規約</span>
           <FontAwesomeIcon
-            icon="fa-regular fa-window-restore"
+            icon={faWindowRestore}
             style={{ color: "#65676c" }}
           />
         </div>
         <div>
           <span className="mr-2">プライバシーポリシー</span>
           <FontAwesomeIcon
-            icon="fa-regular fa-window-restore"
+            icon={faWindowRestore}
             style={{ color: "#65676c" }}
           />
         </div>

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../fontAwesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
+import { faShapes } from "@fortawesome/free-solid-svg-icons";
+// import "../../fontAwesome";
 // Load environment variables from .env file
 // dotenv.config({ path: "../.." + "/.env" });
 
@@ -216,7 +219,7 @@ function Content() {
   const [formData, setFormData] = useState({
     pref: 0,
     year: 0,
-    type: 0, // For dropdown selection
+    type: 0,
   });
 
   // Step 2: Handle input changes
@@ -260,7 +263,7 @@ function Content() {
             </div>
             <div className="h-[88px] text-sm border-b border-primary flex justify-between items-center">
               <div>
-                <FontAwesomeIcon icon="fa-solid fa-location-dot" />
+                <FontAwesomeIcon icon={faLocationDot} />
                 <label className="ml-[6px]">場所</label>
               </div>
               <select
@@ -284,7 +287,7 @@ function Content() {
             </div>
             <div className="h-[88px] text-sm border-b border-primary flex justify-between items-center">
               <div>
-                <FontAwesomeIcon icon="fa-solid fa-calendar-check" />
+                <FontAwesomeIcon icon={faCalendarCheck} />
                 <label className="ml-[6px]">年度</label>
               </div>
               <select
@@ -305,7 +308,7 @@ function Content() {
             </div>
             <div className="h-[192px] text-sm flex pt-6">
               <div>
-                <FontAwesomeIcon icon="fa-solid fa-shapes" />
+                <FontAwesomeIcon icon={faShapes} />
                 <label className="ml-[6px]">種類:</label>
               </div>
               <div className="ml-[24px] flex flex-col gap-3">
