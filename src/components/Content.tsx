@@ -40,6 +40,8 @@ ChartJS.register(
 // test
 function Content() {
   const [prefName, setPrefName] = useState("");
+  const [graphYear, setGraphyear] = useState(0);
+  const [graphtype, setGraphType] = useState("");
   const [prefValue, setPrefValue] = useState(0);
   const [countryName, setCountryName] = useState("");
   const [countryValue, setCountryValue] = useState(0);
@@ -109,9 +111,21 @@ function Content() {
     ],
   };
 
+  const graphInfo = [prefName, graphYear, graphtype];
+
   function Download(prefCode: number, year: number, type: number) {
+    const typeArr = [
+      "土地(住宅地)",
+      "土地(商業地)",
+      "中古マンション等",
+      "農地",
+      "林地",
+    ];
+
     setCountry(year, type);
     setPref(prefCode, year, type);
+    setGraphyear(year);
+    setGraphType(typeArr[type - 1]);
   }
   async function setPref(prefCode: number, year: number, type: number) {
     const apiKey = import.meta.env.VITE_RESAS_API_KEY;
@@ -206,6 +220,7 @@ function Content() {
   const setFinal = () => {
     setCountryName("全国平均");
     setCountryValue(totalVal / 47);
+    console.log(graphInfo);
   };
 
   // function getCountryData() {
@@ -253,6 +268,9 @@ function Content() {
   return (
     <div className="m-[40px] w-auto h-[780px] flex gap-[80px]">
       <div className="w-[1457px] h-auto">
+        {graphInfo.map((info) => (
+          <div key={info}>{info}</div>
+        ))}
         <Bar data={data} />
       </div>
       <div className="w-[359px] h-auto bg-primary rounded">
