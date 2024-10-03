@@ -29,7 +29,7 @@ export default {
       ...theme('colors'),
       'primary': '#F0F3F5',
       'secondary': '#ffed4a',
-      'danger': '#e3342f',
+      'button': '#0071C1',
      })
   },
   plugins: [],

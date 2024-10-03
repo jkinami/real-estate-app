@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../../fontAwesome";
 // Load environment variables from .env file
 // dotenv.config({ path: "../.." + "/.env" });
 
@@ -253,17 +255,25 @@ function Content() {
       <div className="w-[359px] h-auto bg-primary rounded">
         <form>
           <div className="p-[24px] flex flex-col">
-            <div className="h-[48px]">表示内容を選択</div>
-            <div className="h-[88px]">
-              <label>場所</label>
+            <div className="h-[48px] text-base font-normal border-b border-primary">
+              表示内容を選択
+            </div>
+            <div className="h-[88px] text-sm border-b border-primary flex justify-between items-center">
+              <div>
+                <FontAwesomeIcon icon="fa-solid fa-location-dot" />
+                <label className="ml-[6px]">場所</label>
+              </div>
               <select
+                className="h-[40px] w-[240px] flex"
                 name="prefecture"
                 value={formData.pref}
                 onChange={handlePrefChange}
               >
                 <option value="">--Select Pref--</option>
                 {Object.entries(prefArea).map(([key, value]) => (
-                  <option value={value.prefCode}>{key}</option>
+                  <option key={key} value={value.prefCode}>
+                    {key}
+                  </option>
                 ))}
                 {/*
                 <option value={13}>"Tokyo"</option>
@@ -272,9 +282,13 @@ function Content() {
                 <option value="yellow">Yellow</option> */}
               </select>
             </div>
-            <div className="h-[88px]">
-              <label>年度</label>
+            <div className="h-[88px] text-sm border-b border-primary flex justify-between items-center">
+              <div>
+                <FontAwesomeIcon icon="fa-solid fa-calendar-check" />
+                <label className="ml-[6px]">年度</label>
+              </div>
               <select
+                className="h-[40px] w-[240px] flex"
                 name="prefecture"
                 value={formData.year}
                 onChange={handleYearChange}
@@ -289,63 +303,76 @@ function Content() {
                 <option value={2021}>2021</option>
               </select>
             </div>
-            <div className="h-[192px]">
-              種類
-              <label>種類:</label>
+            <div className="h-[192px] text-sm flex pt-6">
               <div>
-                <input
-                  type="radio"
-                  name="type"
-                  value={1}
-                  checked={formData.type === 1}
-                  onChange={handleTypeChange}
-                />
-                <label>土地(住宅地)</label>
+                <FontAwesomeIcon icon="fa-solid fa-shapes" />
+                <label className="ml-[6px]">種類:</label>
               </div>
-              <div>
-                <input
-                  type="radio"
-                  name="type"
-                  value={2}
-                  checked={formData.type === 2}
-                  onChange={handleTypeChange}
-                />
-                <label>土地(商業地)</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="type"
-                  value={3}
-                  checked={formData.type === 3}
-                  onChange={handleTypeChange}
-                />
-                <label>中古マンション等</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="type"
-                  value={4}
-                  checked={formData.type === 4}
-                  onChange={handleTypeChange}
-                />
-                <label>農地</label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  name="type"
-                  value={5}
-                  checked={formData.type === 5}
-                  onChange={handleTypeChange}
-                />
-                <label>林地</label>
+              <div className="ml-[24px] flex flex-col gap-3">
+                <div>
+                  <input
+                    className="form-radio scale-150 text-blue-600 hover:border-blue-500 mr-2"
+                    type="radio"
+                    name="type"
+                    value={1}
+                    checked={formData.type === 1}
+                    onChange={handleTypeChange}
+                  />
+                  <label>土地(住宅地)</label>
+                </div>
+                <div>
+                  <input
+                    className="form-radio scale-150 text-blue-600 hover:border-blue-500 mr-2"
+                    type="radio"
+                    name="type"
+                    value={2}
+                    checked={formData.type === 2}
+                    onChange={handleTypeChange}
+                  />
+                  <label>土地(商業地)</label>
+                </div>
+                <div>
+                  <input
+                    className="form-radio scale-150 text-blue-600 hover:border-blue-500 mr-2"
+                    type="radio"
+                    name="type"
+                    value={3}
+                    checked={formData.type === 3}
+                    onChange={handleTypeChange}
+                  />
+                  <label>中古マンション等</label>
+                </div>
+                <div>
+                  <input
+                    className="form-radio scale-150 text-blue-600 hover:border-blue-500 mr-2"
+                    type="radio"
+                    name="type"
+                    value={4}
+                    checked={formData.type === 4}
+                    onChange={handleTypeChange}
+                  />
+                  <label>農地</label>
+                </div>
+                <div>
+                  <input
+                    className="form-radio scale-150 text-blue-600 hover:border-blue-500 mr-2"
+                    type="radio"
+                    name="type"
+                    value={5}
+                    checked={formData.type === 5}
+                    onChange={handleTypeChange}
+                  />
+                  <label>林地</label>
+                </div>
               </div>
             </div>
             <div className="h-[316px] flex flex-col justify-end">
-              <button type="button" onClick={() => handleClick()}>
-                Download
+              <button
+                className="bg-button hover:bg-blue-800 text-white w-[311px] h-[52px] rounded-sm"
+                type="button"
+                onClick={() => handleClick()}
+              >
+                データをダウンロード
               </button>
             </div>
           </div>
