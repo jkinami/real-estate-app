@@ -3,9 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
-// import "../../fontAwesome";
-// Load environment variables from .env file
-// dotenv.config({ path: "../.." + "/.env" });
 
 import {
   Chart as ChartJS,
@@ -27,17 +24,6 @@ ChartJS.register(
   Legend
 );
 
-// const options = {
-//   scales: {
-//     x: {
-//       type: "category", // This is crucial for using a category axis
-//     },
-//     y: {
-//       beginAtZero: true,
-//     },
-//   },
-// };
-// test
 function Content() {
   const [prefName, setPrefName] = useState("");
   const [graphYear, setGraphyear] = useState(0);
@@ -112,8 +98,8 @@ function Content() {
   };
 
   const options = {
-    responsive: true, // Make the chart responsive
-    maintainAspectRatio: false, // Allow custom dimensions
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       y: {
         beginAtZero: true,
@@ -171,10 +157,9 @@ function Content() {
   const assignPrefData = (data: PrefData) => {
     const resasPrefName = data.prefName;
     const resasPrefValue = data.years[0].value;
-    // const resasPrefName = response["result"]["prefName"];
+
     setPrefName(resasPrefName);
     setPrefValue(resasPrefValue);
-    // setPrefValue((prefArea[resasPrefName].area as number) / resasPrefValue);
   };
 
   function setCountry(year: number, type: number) {
@@ -189,9 +174,6 @@ function Content() {
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
-    // Object.values(prefArea).forEach((pref) =>
-    //     getPrefVal(pref.prefCode, year)
-    //   ).then(setFinal)
   }
 
   async function getPrefVal(prefCode: number, year: number, type: number) {
@@ -233,21 +215,12 @@ function Content() {
     console.log(graphInfo);
   };
 
-  // function getCountryData() {
-  //   const totalArea = Object.values(prefArea).reduce(
-  //     (sum, pref) => sum + pref.area,
-  //     0
-  //   );
-  //   return (totalArea as number) / 324740;
-  // }
-  // Step 1: Set up state for form inputs
   const [formData, setFormData] = useState({
     pref: 0,
     year: 0,
     type: 0,
   });
 
-  // Step 2: Handle input changes
   const handlePrefChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFormData((prevData) => ({
       ...prevData,

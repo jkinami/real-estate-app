@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowRestore } from "@fortawesome/free-regular-svg-icons";
-// import "../../fontAwesome";
 
 const Footer = () => {
   return (
