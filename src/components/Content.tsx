@@ -41,7 +41,7 @@ ChartJS.register(
 function Content() {
   const [prefName, setPrefName] = useState("");
   const [graphYear, setGraphyear] = useState(0);
-  const [graphtype, setGraphType] = useState("");
+  const [graphType, setGraphType] = useState("");
   const [prefValue, setPrefValue] = useState(0);
   const [countryName, setCountryName] = useState("");
   const [countryValue, setCountryValue] = useState(0);
@@ -104,19 +104,29 @@ function Content() {
     labels: [prefName, countryName],
     datasets: [
       {
-        label: "My Dataset",
+        label: prefName,
         data: [prefValue, countryValue],
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        backgroundColor: ["rgb(0, 153, 132)", "rgb(112, 109, 101)"],
       },
     ],
   };
 
-  const graphInfo = [prefName, graphYear, graphtype];
+  const options = {
+    responsive: true, // Make the chart responsive
+    maintainAspectRatio: false, // Allow custom dimensions
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
+
+  const graphInfo = { pref: prefName, year: graphYear, type: graphType };
 
   function Download(prefCode: number, year: number, type: number) {
     const typeArr = [
-      "土地(住宅地)",
-      "土地(商業地)",
+      "土地 (住宅地)",
+      "土地 (商業地)",
       "中古マンション等",
       "農地",
       "林地",
@@ -267,11 +277,26 @@ function Content() {
 
   return (
     <div className="m-[40px] w-auto h-[780px] flex gap-[80px]">
-      <div className="w-[1457px] h-auto">
-        {graphInfo.map((info) => (
-          <div key={info}>{info}</div>
-        ))}
-        <Bar data={data} />
+      <div className="w-[1457px] h-auto flex flex-col items-center justify-center">
+        <div className="flex text-2xl font-normal text-white mb-9">
+          <div>
+            <FontAwesomeIcon icon={faLocationDot} />
+            <span className="ml-3">{prefName}</span>
+          </div>
+          <div className="ml-11">
+            <FontAwesomeIcon icon={faCalendarCheck} />
+            <span className="ml-3">
+              {graphYear == 0 ? null : `${graphYear}年`}
+            </span>
+          </div>
+          <div className="ml-11">
+            <FontAwesomeIcon icon={faShapes} />
+            <span className="ml-3">{graphType}</span>
+          </div>
+        </div>
+        <div className="h-[446px] w-[713px]">
+          <Bar data={data} options={options} />
+        </div>
       </div>
       <div className="w-[359px] h-auto bg-primary rounded">
         <form>
@@ -296,11 +321,6 @@ function Content() {
                     {key}
                   </option>
                 ))}
-                {/*
-                <option value={13}>"Tokyo"</option>
-                <option value={14}>Kanagawa</option>
-                <option value="green">Green</option>
-                <option value="yellow">Yellow</option> */}
               </select>
             </div>
             <div className="h-[88px] text-sm border-b border-primary flex justify-between items-center">
@@ -339,7 +359,7 @@ function Content() {
                     checked={formData.type === 1}
                     onChange={handleTypeChange}
                   />
-                  <label>土地(住宅地)</label>
+                  <label>土地 (住宅地)</label>
                 </div>
                 <div>
                   <input
@@ -350,7 +370,7 @@ function Content() {
                     checked={formData.type === 2}
                     onChange={handleTypeChange}
                   />
-                  <label>土地(商業地)</label>
+                  <label>土地 (商業地)</label>
                 </div>
                 <div>
                   <input
